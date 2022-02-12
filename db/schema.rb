@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220212023707) do
+ActiveRecord::Schema.define(version: 20220212024433) do
+
+  create_table "applications", force: :cascade do |t|
+    t.string   "primary_field"
+    t.string   "secondary_field"
+    t.string   "background_color"
+    t.string   "description"
+    t.string   "font"
+    t.string   "display_theme"
+    t.string   "img_url"
+    t.string   "app_name"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
