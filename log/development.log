@@ -59,3 +59,758 @@ Migrating to CreateValues (20220212030034)
   [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212030034"]]
   [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (1.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (8.2ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (2.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (1.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 03:53:21.646126"], ["updated_at", "2022-02-12 03:53:21.646126"]]
+  [1m[35m (2.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 03:53:21.649199"], ["updated_at", "2022-02-12 03:53:21.649199"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 03:53:21.650104"], ["updated_at", "2022-02-12 03:53:21.650104"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (2.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 03:54:32.125176"], ["updated_at", "2022-02-12 03:54:32.125176"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 03:54:32.126218"], ["updated_at", "2022-02-12 03:54:32.126218"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 03:54:32.126855"], ["updated_at", "2022-02-12 03:54:32.126855"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateValues (20220212030034)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "values"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212030034"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRecords (20220212025854)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "records"[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212025854"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFields (20220212025307)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "fields"[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212025307"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateApplications (20220212024433)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "applications"[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212024433"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateApplications (20220212024433)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "users_id" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212024433"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFields (20220212025307)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212025307"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRecords (20220212025854)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212025854"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateValues (20220212030034)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212030034"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateValues (20220212030034)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.3ms)[0m  [1mDROP TABLE "values"[0m
+  [1m[35mSQL (0.2ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212030034"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRecords (20220212025854)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mDROP TABLE "records"[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212025854"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFields (20220212025307)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "fields"[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212025307"]]
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+Migrating to CreateApplications (20220212024433)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mDROP TABLE "applications"[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?  [["version", "20220212024433"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateApplications (20220212024433)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212024433"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+Migrating to CreateFields (20220212025307)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212025307"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+Migrating to CreateRecords (20220212025854)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212025854"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+Migrating to CreateValues (20220212030034)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20220212030034"]]
+  [1m[36m (2.4ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:30:17.759422"], ["updated_at", "2022-02-12 04:30:17.759422"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:30:17.760583"], ["updated_at", "2022-02-12 04:30:17.760583"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:30:17.761106"], ["updated_at", "2022-02-12 04:30:17.761106"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:30:17.769795"], ["updated_at", "2022-02-12 04:30:17.769795"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:30:17.770620"], ["updated_at", "2022-02-12 04:30:17.770620"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-12 04:30:17.771642"], ["updated_at", "2022-02-12 04:30:17.771642"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mApplication Load (0.2ms)[0m  SELECT "applications".* FROM "applications"
+  [1m[36mRecord Load (0.6ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mRecord Load (0.3ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mField Load (0.2ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
+  [1m[36mUser Load (1.4ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mApplication Load (0.3ms)[0m  SELECT "applications".* FROM "applications"
+  [1m[36mRecord Load (0.7ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mRecord Load (0.2ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mRecord Load (0.3ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mRecord Load (0.3ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mRecord Load (0.5ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mRecord Load (0.3ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mApplication Load (0.4ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  [1m[35mRecord Load (0.4ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT  "records".* FROM "records"  ORDER BY "records"."id" ASC LIMIT 1[0m
+  [1m[35mRecord Load (0.4ms)[0m  SELECT  "records".* FROM "records"  ORDER BY "records"."id" ASC LIMIT 1
+  [1m[36mApplication Load (0.4ms)[0m  [1mSELECT  "applications".* FROM "applications"  ORDER BY "applications"."id" ASC LIMIT 1[0m
+  [1m[35mRecord Load (0.5ms)[0m  SELECT  "records".* FROM "records"  ORDER BY "records"."id" ASC LIMIT 1
+  [1m[36mRecord Load (0.6ms)[0m  [1mSELECT  "records".* FROM "records"  ORDER BY "records"."id" ASC LIMIT 1[0m
+  [1m[35mField Load (0.1ms)[0m  SELECT  "fields".* FROM "fields"  ORDER BY "fields"."id" ASC LIMIT 1
+  [1m[36mField Load (0.2ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
+  [1m[36mRecord Load (1.6ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mRecord Load (0.1ms)[0m  SELECT  "records".* FROM "records"  ORDER BY "records"."id" ASC LIMIT 1
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:47:00.523962"], ["updated_at", "2022-02-12 04:47:00.523962"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:47:00.525159"], ["updated_at", "2022-02-12 04:47:00.525159"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:47:00.525805"], ["updated_at", "2022-02-12 04:47:00.525805"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 4], ["created_at", "2022-02-12 04:47:00.534578"], ["updated_at", "2022-02-12 04:47:00.534578"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 4], ["created_at", "2022-02-12 04:47:00.535484"], ["updated_at", "2022-02-12 04:47:00.535484"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 5], ["created_at", "2022-02-12 04:47:00.536263"], ["updated_at", "2022-02-12 04:47:00.536263"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:47:22.525822"], ["updated_at", "2022-02-12 04:47:22.525822"]]
+  [1m[35m (1.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:47:22.527539"], ["updated_at", "2022-02-12 04:47:22.527539"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:47:22.528222"], ["updated_at", "2022-02-12 04:47:22.528222"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 7], ["created_at", "2022-02-12 04:47:22.537881"], ["updated_at", "2022-02-12 04:47:22.537881"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 7], ["created_at", "2022-02-12 04:47:22.539101"], ["updated_at", "2022-02-12 04:47:22.539101"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 8], ["created_at", "2022-02-12 04:47:22.540099"], ["updated_at", "2022-02-12 04:47:22.540099"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 7], ["created_at", "2022-02-12 04:47:22.543018"], ["updated_at", "2022-02-12 04:47:22.543018"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36mRecord Load (0.7ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mRecord Load (0.3ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:47:45.744837"], ["updated_at", "2022-02-12 04:47:45.744837"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:47:45.745805"], ["updated_at", "2022-02-12 04:47:45.745805"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:47:45.746340"], ["updated_at", "2022-02-12 04:47:45.746340"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 10], ["created_at", "2022-02-12 04:47:45.754770"], ["updated_at", "2022-02-12 04:47:45.754770"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 10], ["created_at", "2022-02-12 04:47:45.755596"], ["updated_at", "2022-02-12 04:47:45.755596"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 11], ["created_at", "2022-02-12 04:47:45.756337"], ["updated_at", "2022-02-12 04:47:45.756337"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 10], ["created_at", "2022-02-12 04:47:45.759190"], ["updated_at", "2022-02-12 04:47:45.759190"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 11], ["created_at", "2022-02-12 04:47:45.760071"], ["updated_at", "2022-02-12 04:47:45.760071"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 12], ["created_at", "2022-02-12 04:47:45.760806"], ["updated_at", "2022-02-12 04:47:45.760806"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36mRecord Load (0.8ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mApplication Load (0.3ms)[0m  SELECT "applications".* FROM "applications"
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:49:50.868589"], ["updated_at", "2022-02-12 04:49:50.868589"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:49:50.869640"], ["updated_at", "2022-02-12 04:49:50.869640"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:49:50.870328"], ["updated_at", "2022-02-12 04:49:50.870328"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:49:50.881966"], ["updated_at", "2022-02-12 04:49:50.881966"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:49:50.883055"], ["updated_at", "2022-02-12 04:49:50.883055"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-12 04:49:50.883859"], ["updated_at", "2022-02-12 04:49:50.883859"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-12 04:49:50.886628"], ["updated_at", "2022-02-12 04:49:50.886628"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-12 04:49:50.887470"], ["updated_at", "2022-02-12 04:49:50.887470"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-12 04:49:50.888212"], ["updated_at", "2022-02-12 04:49:50.888212"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:50:22.690881"], ["updated_at", "2022-02-12 04:50:22.690881"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:50:22.692051"], ["updated_at", "2022-02-12 04:50:22.692051"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:50:22.692791"], ["updated_at", "2022-02-12 04:50:22.692791"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 4], ["created_at", "2022-02-12 04:50:22.701456"], ["updated_at", "2022-02-12 04:50:22.701456"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 4], ["created_at", "2022-02-12 04:50:22.702353"], ["updated_at", "2022-02-12 04:50:22.702353"]]
+  [1m[35m (3.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 5], ["created_at", "2022-02-12 04:50:22.706816"], ["updated_at", "2022-02-12 04:50:22.706816"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 4], ["created_at", "2022-02-12 04:50:22.709549"], ["updated_at", "2022-02-12 04:50:22.709549"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 5], ["created_at", "2022-02-12 04:50:22.710297"], ["updated_at", "2022-02-12 04:50:22.710297"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 6], ["created_at", "2022-02-12 04:50:22.710959"], ["updated_at", "2022-02-12 04:50:22.710959"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:50:47.268925"], ["updated_at", "2022-02-12 04:50:47.268925"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:50:47.269856"], ["updated_at", "2022-02-12 04:50:47.269856"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:50:47.270444"], ["updated_at", "2022-02-12 04:50:47.270444"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:50:47.280856"], ["updated_at", "2022-02-12 04:50:47.280856"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:50:47.282060"], ["updated_at", "2022-02-12 04:50:47.282060"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-12 04:50:47.282904"], ["updated_at", "2022-02-12 04:50:47.282904"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-12 04:50:47.285754"], ["updated_at", "2022-02-12 04:50:47.285754"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-12 04:50:47.286613"], ["updated_at", "2022-02-12 04:50:47.286613"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-12 04:50:47.287417"], ["updated_at", "2022-02-12 04:50:47.287417"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mUser Load (2.2ms)[0m  [1mSELECT "users".* FROM "users"[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users"
+  [1m[36mApplication Load (0.2ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  [1m[35mRecord Load (0.6ms)[0m  SELECT "records".* FROM "records"
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (1.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:52:34.051337"], ["updated_at", "2022-02-12 04:52:34.051337"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:52:34.052757"], ["updated_at", "2022-02-12 04:52:34.052757"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:52:34.053480"], ["updated_at", "2022-02-12 04:52:34.053480"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:52:34.063233"], ["updated_at", "2022-02-12 04:52:34.063233"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:52:34.064289"], ["updated_at", "2022-02-12 04:52:34.064289"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-12 04:52:34.065252"], ["updated_at", "2022-02-12 04:52:34.065252"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-12 04:52:34.068018"], ["updated_at", "2022-02-12 04:52:34.068018"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-12 04:52:34.068888"], ["updated_at", "2022-02-12 04:52:34.068888"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-12 04:52:34.069665"], ["updated_at", "2022-02-12 04:52:34.069665"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:53:10.622099"], ["updated_at", "2022-02-12 04:53:10.622099"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:53:10.623215"], ["updated_at", "2022-02-12 04:53:10.623215"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:53:10.623937"], ["updated_at", "2022-02-12 04:53:10.623937"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:53:10.634648"], ["updated_at", "2022-02-12 04:53:10.634648"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:53:10.635764"], ["updated_at", "2022-02-12 04:53:10.635764"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-12 04:53:10.636587"], ["updated_at", "2022-02-12 04:53:10.636587"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-12 04:53:10.639266"], ["updated_at", "2022-02-12 04:53:10.639266"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-12 04:53:10.640190"], ["updated_at", "2022-02-12 04:53:10.640190"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-12 04:53:10.640951"], ["updated_at", "2022-02-12 04:53:10.640951"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (3.1ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (5.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.5ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:53:42.817194"], ["updated_at", "2022-02-12 04:53:42.817194"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:53:42.818474"], ["updated_at", "2022-02-12 04:53:42.818474"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:53:42.819358"], ["updated_at", "2022-02-12 04:53:42.819358"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:53:42.829718"], ["updated_at", "2022-02-12 04:53:42.829718"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:53:42.830862"], ["updated_at", "2022-02-12 04:53:42.830862"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-12 04:53:42.831768"], ["updated_at", "2022-02-12 04:53:42.831768"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-12 04:53:42.834625"], ["updated_at", "2022-02-12 04:53:42.834625"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-12 04:53:42.835425"], ["updated_at", "2022-02-12 04:53:42.835425"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-12 04:53:42.836080"], ["updated_at", "2022-02-12 04:53:42.836080"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Word"], ["application_id", 1], ["created_at", "2022-02-12 04:53:42.839128"], ["updated_at", "2022-02-12 04:53:42.839128"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Part of Speech"], ["application_id", 1], ["created_at", "2022-02-12 04:53:42.839937"], ["updated_at", "2022-02-12 04:53:42.839937"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Building Name"], ["application_id", 2], ["created_at", "2022-02-12 04:53:42.840605"], ["updated_at", "2022-02-12 04:53:42.840605"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Unit"], ["application_id", 2], ["created_at", "2022-02-12 04:53:42.841233"], ["updated_at", "2022-02-12 04:53:42.841233"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mField Load (0.6ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-12 04:54:22.611268"], ["updated_at", "2022-02-12 04:54:22.611268"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-12 04:54:22.612200"], ["updated_at", "2022-02-12 04:54:22.612200"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-12 04:54:22.612786"], ["updated_at", "2022-02-12 04:54:22.612786"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:54:22.622407"], ["updated_at", "2022-02-12 04:54:22.622407"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-12 04:54:22.623613"], ["updated_at", "2022-02-12 04:54:22.623613"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-12 04:54:22.624462"], ["updated_at", "2022-02-12 04:54:22.624462"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-12 04:54:22.627019"], ["updated_at", "2022-02-12 04:54:22.627019"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-12 04:54:22.627771"], ["updated_at", "2022-02-12 04:54:22.627771"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-12 04:54:22.628466"], ["updated_at", "2022-02-12 04:54:22.628466"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Word"], ["application_id", 1], ["created_at", "2022-02-12 04:54:22.631023"], ["updated_at", "2022-02-12 04:54:22.631023"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Part of Speech"], ["application_id", 1], ["created_at", "2022-02-12 04:54:22.631749"], ["updated_at", "2022-02-12 04:54:22.631749"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Building Name"], ["application_id", 2], ["created_at", "2022-02-12 04:54:22.632402"], ["updated_at", "2022-02-12 04:54:22.632402"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Unit"], ["application_id", 2], ["created_at", "2022-02-12 04:54:22.632976"], ["updated_at", "2022-02-12 04:54:22.632976"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "values" ("field_value", "field_id", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["field_value", "Strawberry"], ["field_id", 1], ["record_id", 1], ["created_at", "2022-02-12 04:54:22.635727"], ["updated_at", "2022-02-12 04:54:22.635727"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "values" ("field_value", "field_id", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["field_value", "Noun"], ["field_id", 2], ["record_id", 1], ["created_at", "2022-02-12 04:54:22.636431"], ["updated_at", "2022-02-12 04:54:22.636431"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36mValue Load (1.1ms)[0m  [1mSELECT "values".* FROM "values"[0m

@@ -10,6 +10,7 @@ class CreateApplications < ActiveRecord::Migration
       t.string :img_url
       t.string :app_name
       t.timestamps null: false
+      t.references :user, foreign_key: true
     end
   end
 end

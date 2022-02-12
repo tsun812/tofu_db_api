@@ -4,6 +4,7 @@ class CreateFields < ActiveRecord::Migration
       t.string :field_name
       t.string :field_type, :default => "string"
       t.timestamps null: false
+      t.references :application, foreign_key: true
     end
   end
 end
