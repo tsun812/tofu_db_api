@@ -814,3 +814,23 @@ Migrating to CreateValues (20220212030034)
   [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "values" ("field_value", "field_id", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["field_value", "Noun"], ["field_id", 2], ["record_id", 1], ["created_at", "2022-02-12 04:54:22.636431"], ["updated_at", "2022-02-12 04:54:22.636431"]]
   [1m[35m (0.2ms)[0m  commit transaction
   [1m[36mValue Load (1.1ms)[0m  [1mSELECT "values".* FROM "values"[0m
+
+
+Started GET "/" for ::1 at 2022-02-12 11:02:00 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/railties-4.2.11/lib/rails/templates/rails/welcome/index.html.erb (1.2ms)
+Completed 200 OK in 10ms (Views: 6.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/applications" for ::1 at 2022-02-12 11:02:05 -0800
+Processing by ApplicationsController#index as HTML
+  [1m[35mApplication Load (1.5ms)[0m  SELECT "applications".* FROM "applications"
+Completed 200 OK in 44ms (Views: 22.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/applications" for ::1 at 2022-02-12 11:06:05 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ApplicationsController#index as */*
+  [1m[35mApplication Load (0.1ms)[0m  SELECT "applications".* FROM "applications"
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 0.3ms)
