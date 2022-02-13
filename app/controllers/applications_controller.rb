@@ -28,7 +28,6 @@ end
 
 def update
   user_application = Application.find(params[:id])
-  p params
   user_application.update(
     primary_field: params[:primary_field],
     secondary_field: params[:secondary_field],
