@@ -1,14 +1,16 @@
 class ValuesController < ApplicationController
   def create(record_id, field_id)
-    Record.create(record_value: params[:record_value], record_id: record_id, field_id: field_id)
+    Value.create(field_value: params[:field_value], record_id: record_id, field_id: field_id)
   end
 
   def update(record_id, field_id)
-    Record.where(record_id: record_id, field_id: field_id).update(record_value:params[:record_value])
+    value = Value.find_by(record_id: record_id, field_id: field_id)
+    value.update_columns(field_value: params[:field_value])
   end
 
   def destroy(record_id, field_id)
-    Record.where(record_id: record_id, field_id: field_id).destroy
+    value = Value.find_by(record_id: record_id, field_id: field_id)
+    value.destroy
   end
 
 end
