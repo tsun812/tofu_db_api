@@ -1,4 +1,5 @@
 class ValuesController < ApplicationController
+  
   def create(record_id, field_id)
     Value.create(field_value: params[:field_value], record_id: record_id, field_id: field_id)
   end
