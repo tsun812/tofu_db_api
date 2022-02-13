@@ -22,9 +22,4 @@ end
     )
     render json: record
   end
-
-  def getRecordID
-    params[:id]
-  end
-
 end
