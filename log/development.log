@@ -3677,3 +3677,15 @@ Processing by FieldsController#destroy as */*
   [1m[35m (0.4ms)[0m  commit transaction
   [1m[36mField Load (0.1ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
 Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+  [1m[36mApplication Load (1.4ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+  [1m[35mRecord Load (0.8ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
+  [1m[35mApplication Load (0.4ms)[0m  SELECT  "applications".* FROM "applications" WHERE "applications"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  DELETE FROM "fields" WHERE "fields"."application_id" = ?  [["application_id", 1]]
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "records" WHERE "records"."application_id" = ?[0m  [["application_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "applications" WHERE "applications"."id" = ?  [["id", 1]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecord Load (2.3ms)[0m  SELECT "records".* FROM "records"
+  [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
+  [1m[35mValue Load (0.3ms)[0m  SELECT "values".* FROM "values"
