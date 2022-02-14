@@ -8,11 +8,17 @@ class FieldsController < ApplicationController
     end
 
     def create
-        @fields = Field.create(
+        field = Field.create(
             field_name: params[:field_name],
             field_type: params[:field_type],
             application_id: params[:application_id]
             )
+        records = Record.where(application_id: params[:application_id])
+        unless records.nil?
+            records.each do |record|
+                createValue(record.id, field.id)
+            end
+        end
         render json: @fields
     end 
 

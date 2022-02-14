@@ -3689,3 +3689,627 @@ Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.9ms)
   [1m[35mRecord Load (2.3ms)[0m  SELECT "records".* FROM "records"
   [1m[36mField Load (0.5ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
   [1m[35mValue Load (0.3ms)[0m  SELECT "values".* FROM "values"
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (1.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (2.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (1.8ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.6ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-14 17:35:15.146888"], ["updated_at", "2022-02-14 17:35:15.146888"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-14 17:35:15.148511"], ["updated_at", "2022-02-14 17:35:15.148511"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-14 17:35:15.149885"], ["updated_at", "2022-02-14 17:35:15.149885"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-14 17:35:15.173345"], ["updated_at", "2022-02-14 17:35:15.173345"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-14 17:35:15.175550"], ["updated_at", "2022-02-14 17:35:15.175550"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-14 17:35:15.177539"], ["updated_at", "2022-02-14 17:35:15.177539"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-14 17:35:15.185129"], ["updated_at", "2022-02-14 17:35:15.185129"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-14 17:35:15.186869"], ["updated_at", "2022-02-14 17:35:15.186869"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-14 17:35:15.188364"], ["updated_at", "2022-02-14 17:35:15.188364"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Word"], ["application_id", 1], ["created_at", "2022-02-14 17:35:15.194908"], ["updated_at", "2022-02-14 17:35:15.194908"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Part of Speech"], ["application_id", 1], ["created_at", "2022-02-14 17:35:15.196508"], ["updated_at", "2022-02-14 17:35:15.196508"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Building Name"], ["application_id", 2], ["created_at", "2022-02-14 17:35:15.197954"], ["updated_at", "2022-02-14 17:35:15.197954"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Unit"], ["application_id", 2], ["created_at", "2022-02-14 17:35:15.199257"], ["updated_at", "2022-02-14 17:35:15.199257"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "values" ("field_value", "field_id", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["field_value", "Strawberry"], ["field_id", 1], ["record_id", 1], ["created_at", "2022-02-14 17:35:15.214399"], ["updated_at", "2022-02-14 17:35:15.214399"]]
+  [1m[36m (0.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "values" ("field_value", "field_id", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["field_value", "Noun"], ["field_id", 2], ["record_id", 1], ["created_at", "2022-02-14 17:35:15.216212"], ["updated_at", "2022-02-14 17:35:15.216212"]]
+  [1m[35m (0.4ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Relative words"], ["application_id", 1], ["created_at", "2022-02-14 17:58:04.646376"], ["updated_at", "2022-02-14 17:58:04.646376"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+
+
+Started POST "/fields?field_name=relative_word&application_id=1" for ::1 at 2022-02-14 10:00:22 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"relative_word", "application_id"=>"1"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fields" ("field_name", "field_type", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["field_name", "relative_word"], ["field_type", nil], ["application_id", 1], ["created_at", "2022-02-14 18:00:22.342359"], ["updated_at", "2022-02-14 18:00:22.342359"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records"[0m
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 1.2ms)
+
+NoMethodError (undefined method `createValue' for #<FieldsController:0x00000001527c2fd8>
+Did you mean?  create):
+  app/controllers/fields_controller.rb:19:in `block in create'
+  app/controllers/fields_controller.rb:18:in `create'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (19.5ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (33.2ms)
+
+
+Started GET "/fields" for ::1 at 2022-02-14 10:01:09 -0800
+
+ActionController::RoutingError (No route matches [GET] "/fields"):
+  actionpack (4.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.11) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.11) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+  railties (4.2.11) lib/rails/engine.rb:518:in `call'
+  railties (4.2.11) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_table.html.erb (9.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (31.0ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (10.7ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (20.2ms)
+
+
+Started POST "/fields/create?field_name=world&field_type=string&application_id=1" for ::1 at 2022-02-14 10:02:28 -0800
+
+ActionController::RoutingError (No route matches [POST] "/fields/create"):
+  actionpack (4.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.11) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.11) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+  railties (4.2.11) lib/rails/engine.rb:518:in `call'
+  railties (4.2.11) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_table.html.erb (3.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (23.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.7ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (24.2ms)
+
+
+Started GET "/applications" for ::1 at 2022-02-14 10:02:51 -0800
+Processing by ApplicationsController#index as */*
+  [1m[35mApplication Load (0.2ms)[0m  SELECT "applications".* FROM "applications"
+Completed 200 OK in 16ms (Views: 10.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/fields" for ::1 at 2022-02-14 10:03:02 -0800
+
+ActionController::RoutingError (No route matches [GET] "/fields"):
+  actionpack (4.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.11) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.11) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+  railties (4.2.11) lib/rails/engine.rb:518:in `call'
+  railties (4.2.11) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (21.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (12.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (24.0ms)
+
+
+Started POST "/fields?field_name=%22hello%22&field_type=%22string%22&application_id=1" for ::1 at 2022-02-14 10:04:18 -0800
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"\"hello\"", "field_type"=>"\"string\"", "application_id"=>"1"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "fields" ("field_name", "field_type", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["field_name", "\"hello\""], ["field_type", "\"string\""], ["application_id", 1], ["created_at", "2022-02-14 18:04:18.404309"], ["updated_at", "2022-02-14 18:04:18.404309"]]
+  [1m[36m (1.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecord Load (0.7ms)[0m  SELECT "records".* FROM "records"
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 3.5ms)
+
+NoMethodError (undefined method `createValue' for #<FieldsController:0x0000000143f64548>
+Did you mean?  create):
+  app/controllers/fields_controller.rb:19:in `block in create'
+  app/controllers/fields_controller.rb:18:in `create'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.5ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (18.8ms)
+
+
+Started GET "/" for ::1 at 2022-02-14 10:05:45 -0800
+Processing by Rails::WelcomeController#index as HTML
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/railties-4.2.11/lib/rails/templates/rails/welcome/index.html.erb (0.6ms)
+Completed 200 OK in 6ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/records?position=5&application_Id=1" for ::1 at 2022-02-14 10:07:01 -0800
+Processing by RecordsController#create as */*
+  Parameters: {"position"=>"5", "application_Id"=>"1"}
+  [1m[36m (0.6ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "records" ("position", "created_at", "updated_at") VALUES (?, ?, ?)  [["position", 5], ["created_at", "2022-02-14 18:07:01.998891"], ["updated_at", "2022-02-14 18:07:01.998891"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mField Load (0.6ms)[0m  SELECT "fields".* FROM "fields" WHERE "fields"."application_id" IS NULL
+Completed 200 OK in 15ms (Views: 1.1ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/fields?field_name=hello&field_type=string&application_id=1" for ::1 at 2022-02-14 10:08:27 -0800
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"hello", "field_type"=>"string", "application_id"=>"1"}
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "hello"], ["application_id", 1], ["created_at", "2022-02-14 18:08:27.916495"], ["updated_at", "2022-02-14 18:08:27.916495"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecord Load (0.1ms)[0m  SELECT "records".* FROM "records" WHERE "records"."application_id" = ?  [["application_id", 1]]
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 1.8ms)
+
+NoMethodError (undefined method `createValue' for #<FieldsController:0x000000014381da28>
+Did you mean?  create):
+  app/controllers/fields_controller.rb:19:in `block in create'
+  app/controllers/fields_controller.rb:18:in `create'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (22.8ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (18.7ms)
+
+
+Started POST "/fields?field_name=hello&field_type=:string&application_id=1" for ::1 at 2022-02-14 10:10:18 -0800
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"hello", "field_type"=>":string", "application_id"=>"1"}
+  [1m[36m (0.3ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "fields" ("field_name", "field_type", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["field_name", "hello"], ["field_type", ":string"], ["application_id", 1], ["created_at", "2022-02-14 18:10:18.570928"], ["updated_at", "2022-02-14 18:10:18.570928"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35mRecord Load (0.1ms)[0m  SELECT "records".* FROM "records" WHERE "records"."application_id" = ?  [["application_id", 1]]
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 1.2ms)
+
+NoMethodError (undefined method `createValue' for #<FieldsController:0x0000000143945770>
+Did you mean?  create):
+  app/controllers/fields_controller.rb:19:in `block in create'
+  app/controllers/fields_controller.rb:18:in `create'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (10.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (24.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (19.0ms)
+
+
+Started GET "/applications" for ::1 at 2022-02-14 10:11:37 -0800
+Processing by ApplicationsController#index as */*
+  [1m[36mApplication Load (0.5ms)[0m  [1mSELECT "applications".* FROM "applications"[0m
+Completed 200 OK in 17ms (Views: 11.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/fields" for ::1 at 2022-02-14 10:11:50 -0800
+
+ActionController::RoutingError (No route matches [GET] "/fields"):
+  actionpack (4.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.11) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.11) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+  railties (4.2.11) lib/rails/engine.rb:518:in `call'
+  railties (4.2.11) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.4ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (22.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (25.7ms)
+
+
+Started POST "/fields?field_name=hello&application_id=1" for ::1 at 2022-02-14 10:12:14 -0800
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"hello", "application_id"=>"1"}
+  [1m[35m (0.4ms)[0m  begin transaction
+  [1m[36mSQL (1.5ms)[0m  [1mINSERT INTO "fields" ("field_name", "field_type", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["field_name", "hello"], ["field_type", nil], ["application_id", 1], ["created_at", "2022-02-14 18:12:14.837955"], ["updated_at", "2022-02-14 18:12:14.837955"]]
+  [1m[35m (1.5ms)[0m  commit transaction
+  [1m[36mRecord Load (0.6ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."application_id" = ?[0m  [["application_id", 1]]
+Completed 500 Internal Server Error in 45ms (ActiveRecord: 4.0ms)
+
+NoMethodError (undefined method `createValue' for #<FieldsController:0x0000000143cd3db0>
+Did you mean?  create):
+  app/controllers/fields_controller.rb:19:in `block in create'
+  app/controllers/fields_controller.rb:18:in `create'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (15.7ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (9.9ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (18.7ms)
+
+
+Started GET "/records" for ::1 at 2022-02-14 10:13:00 -0800
+
+ActionController::RoutingError (No route matches [GET] "/records"):
+  actionpack (4.2.11) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.11) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.11) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.11) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.13) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.13) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.11) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.11) lib/action_dispatch/middleware/static.rb:120:in `call'
+  rack (1.6.13) lib/rack/sendfile.rb:113:in `call'
+  rack-cors (1.0.6) lib/rack/cors.rb:98:in `call'
+  railties (4.2.11) lib/rails/engine.rb:518:in `call'
+  railties (4.2.11) lib/rails/application.rb:165:in `call'
+  rack (1.6.13) lib/rack/lock.rb:17:in `call'
+  rack (1.6.13) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.13) lib/rack/handler/webrick.rb:88:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:140:in `service'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/httpserver.rb:96:in `run'
+  /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/2.6.0/webrick/server.rb:307:in `block in start_thread'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_route.html.erb (1.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/routes/_table.html.erb (1.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (18.0ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (13.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (39.7ms)
+  [1m[36mRecord Load (1.4ms)[0m  [1mSELECT "records".* FROM "records"[0m
+  [1m[35mRecord Load (0.5ms)[0m  SELECT "records".* FROM "records" WHERE "records"."application_id" = ?  [["application_id", 1]]
+  [1m[36mRecord Load (0.8ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."application_id" = ?[0m  [["application_id", 1]]
+
+
+Started POST "/fields?field_name=1&field_type=string&application_id=1" for ::1 at 2022-02-14 10:22:34 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"1", "field_type"=>"string", "application_id"=>"1"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "1"], ["application_id", 1], ["created_at", "2022-02-14 18:22:34.596263"], ["updated_at", "2022-02-14 18:22:34.596263"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."application_id" = ?[0m  [["application_id", 1]]
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 8.2ms)
+
+NoMethodError (undefined method `createValue' for #<FieldsController:0x000000012c267eb0>
+Did you mean?  create):
+  app/controllers/fields_controller.rb:19:in `block in create'
+  app/controllers/fields_controller.rb:18:in `create'
+
+
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (3.8ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (17.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (15.6ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.1ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/tsun812/.rbenv/versions/2.6.6/lib/ruby/gems/2.6.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (29.1ms)
+
+
+Started POST "/fields?field_name=1&field_type=string&application_id=1" for ::1 at 2022-02-14 10:24:39 -0800
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"1", "field_type"=>"string", "application_id"=>"1"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "1"], ["application_id", 1], ["created_at", "2022-02-14 18:24:39.607981"], ["updated_at", "2022-02-14 18:24:39.607981"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."application_id" = ?[0m  [["application_id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "values" ("record_id", "field_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["record_id", 1], ["field_id", 12], ["created_at", "2022-02-14 18:24:39.622995"], ["updated_at", "2022-02-14 18:24:39.622995"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+Completed 200 OK in 25ms (Views: 0.2ms | ActiveRecord: 2.5ms)
+  [1m[36mValue Load (1.5ms)[0m  [1mSELECT "values".* FROM "values"[0m
+  [1m[35mField Load (0.5ms)[0m  SELECT "fields".* FROM "fields"
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.3ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "applications" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "primary_field" varchar, "secondary_field" varchar, "background_color" varchar, "description" varchar, "font" varchar, "display_theme" varchar, "img_url" varchar, "app_name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "user_id" integer) [0m
+  [1m[35m (0.4ms)[0m  CREATE TABLE "fields" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_name" varchar, "field_type" varchar DEFAULT 'string', "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "records" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "position" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "application_id" integer) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.4ms)[0m  [1mCREATE TABLE "values" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "field_value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "record_id" integer, "field_id" integer) [0m
+  [1m[35m (0.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212030034')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025854')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212023707')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20220212025307')[0m
+  [1m[35m (0.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20220212024433')
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Sam"], ["created_at", "2022-02-14 18:27:51.322618"], ["updated_at", "2022-02-14 18:27:51.322618"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)  [["username", "Yan"], ["created_at", "2022-02-14 18:27:51.324089"], ["updated_at", "2022-02-14 18:27:51.324089"]]
+  [1m[36m (0.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "users" ("username", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["username", "Matt"], ["created_at", "2022-02-14 18:27:51.325234"], ["updated_at", "2022-02-14 18:27:51.325234"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "Word"], ["secondary_field", "Part of Speech"], ["background_color", "black"], ["description", "This is a dictionary app"], ["font", "Ariel"], ["display_theme", "list"], ["img_url", "www.google.com"], ["app_name", "English Dictionary"], ["user_id", 1], ["created_at", "2022-02-14 18:27:51.346993"], ["updated_at", "2022-02-14 18:27:51.346993"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["primary_field", "building"], ["secondary_field", "unit"], ["background_color", "green"], ["description", "This is a building app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.google.com"], ["app_name", "building dictionary"], ["user_id", 1], ["created_at", "2022-02-14 18:27:51.349045"], ["updated_at", "2022-02-14 18:27:51.349045"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "applications" ("primary_field", "secondary_field", "background_color", "description", "font", "display_theme", "img_url", "app_name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)  [["primary_field", "food"], ["secondary_field", "ingredient"], ["background_color", "pink,"], ["description", "This is a food app"], ["font", "Ariel"], ["display_theme", "grid"], ["img_url", "www.youtube.com"], ["app_name", "recipe dictionary"], ["user_id", 2], ["created_at", "2022-02-14 18:27:51.350941"], ["updated_at", "2022-02-14 18:27:51.350941"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 2], ["application_id", 1], ["created_at", "2022-02-14 18:27:51.357396"], ["updated_at", "2022-02-14 18:27:51.357396"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["position", 1], ["application_id", 2], ["created_at", "2022-02-14 18:27:51.358970"], ["updated_at", "2022-02-14 18:27:51.358970"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "records" ("position", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["position", 3], ["application_id", 3], ["created_at", "2022-02-14 18:27:51.360406"], ["updated_at", "2022-02-14 18:27:51.360406"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Word"], ["application_id", 1], ["created_at", "2022-02-14 18:27:51.366741"], ["updated_at", "2022-02-14 18:27:51.366741"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Part of Speech"], ["application_id", 1], ["created_at", "2022-02-14 18:27:51.368167"], ["updated_at", "2022-02-14 18:27:51.368167"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["field_name", "Building Name"], ["application_id", 2], ["created_at", "2022-02-14 18:27:51.369709"], ["updated_at", "2022-02-14 18:27:51.369709"]]
+  [1m[36m (0.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "Unit"], ["application_id", 2], ["created_at", "2022-02-14 18:27:51.371012"], ["updated_at", "2022-02-14 18:27:51.371012"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "values" ("field_value", "field_id", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["field_value", "Strawberry"], ["field_id", 1], ["record_id", 1], ["created_at", "2022-02-14 18:27:51.385658"], ["updated_at", "2022-02-14 18:27:51.385658"]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "values" ("field_value", "field_id", "record_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["field_value", "Noun"], ["field_id", 2], ["record_id", 1], ["created_at", "2022-02-14 18:27:51.387601"], ["updated_at", "2022-02-14 18:27:51.387601"]]
+  [1m[35m (0.2ms)[0m  commit transaction
+
+
+Started POST "/fields?field_name=hello&field_type=string&application_id=1" for ::1 at 2022-02-14 10:28:21 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by FieldsController#create as */*
+  Parameters: {"field_name"=>"hello", "field_type"=>"string", "application_id"=>"1"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "fields" ("field_name", "application_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["field_name", "hello"], ["application_id", 1], ["created_at", "2022-02-14 18:28:21.954670"], ["updated_at", "2022-02-14 18:28:21.954670"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+  [1m[36mRecord Load (0.1ms)[0m  [1mSELECT "records".* FROM "records" WHERE "records"."application_id" = ?[0m  [["application_id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "values" ("record_id", "field_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["record_id", 1], ["field_id", 5], ["created_at", "2022-02-14 18:28:21.988446"], ["updated_at", "2022-02-14 18:28:21.988446"]]
+  [1m[35m (0.3ms)[0m  commit transaction
+Completed 200 OK in 60ms (Views: 0.1ms | ActiveRecord: 3.5ms)
+  [1m[36mField Load (1.4ms)[0m  [1mSELECT "fields".* FROM "fields"[0m
+  [1m[35mValue Load (0.3ms)[0m  SELECT "values".* FROM "values"
