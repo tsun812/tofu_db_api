@@ -1,4 +1,10 @@
 class RecordsController < ApplicationController
+
+  def index
+    @records = Record.all
+    render json: @records
+  end
+
   def createValue(record_id, field_id)
     Value.create(field_value: nil, record_id: record_id, field_id: field_id)
   end
