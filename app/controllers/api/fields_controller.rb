@@ -1,4 +1,4 @@
-class FieldsController < ApplicationController
+class API::FieldsController < ApplicationController
     def index
         @fields = Field.all 
         render json: @fields

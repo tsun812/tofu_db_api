@@ -1,4 +1,4 @@
-class RecordsController < ApplicationController
+class API::RecordsController < ApplicationController
 
   def index
     @records = Record.all

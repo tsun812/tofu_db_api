@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  
-  resources :applications, only: [:index, :destroy, :create, :show, :new]
-  resources :values, only: [:destroy, :create, :update]
-  resources :records, only: [:destroy, :create, :update]
-  resources :fields, only: [:destroy, :create, :update]
+  namespace :api do
+    resources :applications, only: [:index, :destroy, :create, :show, :new]
+    resources :values, only: [:index, :destroy, :create, :update]
+    resources :records, only: [:index, :destroy, :create, :update]
+    resources :fields, only: [:index, :destroy, :create, :update]
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

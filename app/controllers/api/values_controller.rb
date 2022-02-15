@@ -1,4 +1,4 @@
-class ValuesController < ApplicationController
+class API::ValuesController < ApplicationController
   
   def index
     @values = Value.all 
