@@ -23,7 +23,7 @@ class API::FieldsController < ApplicationController
                 createValue(record.id, field.id)
             end
         end
-        render json: @fields
+        render json: field
     end 
 
     def update

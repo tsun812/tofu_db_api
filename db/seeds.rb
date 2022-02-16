@@ -15,13 +15,27 @@ application3 = user2.applications.create! ({primary_field: "food", secondary_fie
 
 record1 = application1.records.create!({position: 2})
 record2 = application2.records.create!({position: 1})
-record3 = application3.records.create!({position: 3})
+record3 = application2.records.create!({position: 3})
+record4 = application1.records.create!({position: 3})
+record5 = application1.records.create!({position: 3})
+record6 = application2.records.create!({position: 2})
 
 
 field1 = application1.fields.create!({field_name: "Word"})
 field2 = application1.fields.create!({field_name: "Part of Speech"})
 field3 = application2.fields.create!({field_name: "Building Name"})
-field4 = application2.fields.create!({field_name: "Unit"})
+field4 = application2.fields.create!({field_name: "Price"})
 
 value1 = record1.values.create!({field_value: "Strawberry", field: field1})
 value2 = record1.values.create!({field_value: "Noun", field: field2 })
+value3 = record4.values.create!({field_value: "Lemon", field: field1})
+value4 = record4.values.create!({field_value: "Noun", field: field2 })
+value5 = record5.values.create!({field_value: "Pineapple", field: field1})
+value6 = record5.values.create!({field_value: "Noun", field: field2 })
+
+value11 = record2.values.create!({field_value: "Vancouver Mansion", field: field3})
+value12 = record2.values.create!({field_value: 9999999, field: field4 })
+value13 = record3.values.create!({field_value: "Calgary Apartment", field: field3})
+value14 = record3.values.create!({field_value: 8888888, field: field4 })
+value15 = record6.values.create!({field_value: "Toronto Basement", field: field3})
+value16 = record6.values.create!({field_value: 7777777, field: field4 })

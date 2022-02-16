@@ -48,14 +48,27 @@ def show
   fields = user_application.fields
   records = user_application.records
   app_id = params[:id]
-  recordIDArray = Record.select(:id).where(:application_id => app_id)
+  
+  # recordIDArray = Record.select(:id).where(:application_id => app_id)
+
+  # resultArray =[]
+  # recordIDArray.each do |record|
+  # resultArray.push(Value.where(:record_id => record.id))
+  # end
+  # resultarray2 = resultArray.flatten(1)
+  recordIDArray = Record.where(:application_id => app_id)
 
   resultArray =[]
   recordIDArray.each do |record|
-  resultArray.push(Value.where(:record_id => record.id))
+
+    values = Value.where(:record_id => record.id)
+    recordJSON = record.as_json
+    recordJSON[:values] = values
+    resultArray.push(recordJSON)
   end
 
-  result = {application: user_application, fields: fields, records: records, values: resultArray[0]}
+
+  result = {application: user_application, fields: fields, records: resultArray}
   render json: result
 end
 
