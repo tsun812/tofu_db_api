@@ -1,5 +1,10 @@
-class ValuesController < ApplicationController
+class API::ValuesController < ApplicationController
   
+  def index
+    @values = Value.all 
+    render json: @values
+  end
+
   def create(record_id, field_id)
     Value.create(field_value: params[:field_value], record_id: record_id, field_id: field_id)
   end

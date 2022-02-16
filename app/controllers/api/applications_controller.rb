@@ -1,4 +1,4 @@
-class ApplicationsController < ApplicationController
+class API::ApplicationsController < ApplicationController
   def index
     @applications = Application.all 
     render json: @applications
