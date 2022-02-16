@@ -1,5 +1,4 @@
 class FieldsController < ApplicationController
-
     def destroy
         @fields = Field.all 
         @field = Field.find(params[:id])
