@@ -13,7 +13,7 @@ class API::ApplicationsController < ApplicationController
 end 
 
 def create
-  @applications = Application.create(
+  applications = Application.create(
       primary_field: params[:primary_field],
       secondary_field: params[:secondary_field],
       background_color: params[:background_color],    
@@ -24,7 +24,8 @@ def create
       app_name: params[:app_name],
       user_id: params[:user_id]
   )
-  render json: @applications
+  Allapplications = Application.all 
+  render json: Allapplications
 end
 
 def update
