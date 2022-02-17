@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :applications, only: [:index, :destroy, :create, :show, :new]
+    resources :applications, only: [:index, :destroy, :create, :show, :new, :update]
     resources :values, only: [:index, :destroy, :create, :update]
     resources :records, only: [:index, :destroy, :create, :update]
     resources :fields, only: [:index, :destroy, :create, :update]
