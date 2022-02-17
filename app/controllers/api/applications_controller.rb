@@ -29,7 +29,7 @@ end
 
 def update
   user_application = Application.find(params[:id])
-  user_application.update(
+  user_application.update_columns(
     primary_field: params[:primary_field],
     secondary_field: params[:secondary_field],
     background_color: params[:background_color],
