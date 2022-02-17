@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
   namespace :api do
-    resources :applications, only: [:index, :destroy, :create, :show, :new]
+    resources :applications, only: [:index, :destroy, :create, :show, :new, :update]
+    get '/recordBySelectedFields/:id', to: 'applications#recordBySelectedFields' , as: :recordBySelectedFields
     resources :values, only: [:index, :destroy, :create, :update]
     resources :records, only: [:index, :destroy, :create, :update]
     resources :fields, only: [:index, :destroy, :create, :update]
+    
   end
-
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
