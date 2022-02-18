@@ -10,22 +10,29 @@ class API::ApplicationsController < ApplicationController
     @application = Application.find(params[:id])
     @application.destroy
     render json: @applications
+
   end   
 
-  def create
-    @applications = Application.create(
-        primary_field: params[:primary_field],
-        secondary_field: params[:secondary_field],
-        background_color: params[:background_color],    
-        description: params[:description],
-        font: params[:font],
-        display_theme: params[:display_theme],
-        img_url: params[:img_url],
-        app_name: params[:app_name],
-        user_id: params[:user_id]
-    )
-    render json: @applications
-  end
+  
+def create
+  applications = Application.create(
+      primary_field: params[:primary_field],
+      secondary_field: params[:secondary_field],
+      background_color: params[:background_color],
+      description: params[:description],
+      font: params[:font],
+      display_theme: params[:display_theme],
+      img_url: params[:img_url],
+      app_name: params[:app_name],
+      user_id: params[:user_id]
+  )
+  allApplications = Application.all 
+  render json: allApplications
+end
+
+
+
+
 
   def update
     user_application = Application.find(params[:id])
