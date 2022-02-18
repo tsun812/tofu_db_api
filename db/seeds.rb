@@ -9,9 +9,9 @@ user1 = User.create(username: "Sam")
 user2 = User.create(username: "Yan")
 user3 = User.create(username: "Matt")
 
-application1 = user1.applications.create! ({primary_field: "Word", secondary_field: "Part of Speech", background_color: "black", description: "This is a dictionary app", font: "Ariel", display_theme: "list", img_url: "www.google.com", app_name: "English Dictionary"})
-application2 = user1.applications.create! ({primary_field: "building", secondary_field: "unit", background_color: "green", description: "This is a building app", font: "Ariel", display_theme: "grid", img_url: "www.google.com", app_name: "building dictionary"})
-application3 = user2.applications.create! ({primary_field: "food", secondary_field: "ingredient", background_color: "pink,", description: "This is a food app", font: "Ariel", display_theme: "grid", img_url: "www.youtube.com", app_name: "recipe dictionary"})
+application1 = user1.applications.create! ({primary_field: "Word", secondary_field: "Part of Speech", background_color: "black", description: "This is a dictionary app", font: 12, display_theme: "List", img_url: "www.google.com", app_name: "English Dictionary"})
+application2 = user1.applications.create! ({primary_field: "Building", secondary_field: "Unit", background_color: "green", description: "This is a building app", font: 14, display_theme: "Grid", img_url: "www.google.com", app_name: "Real Estate Directory"})
+application3 = user2.applications.create! ({primary_field: "Food", secondary_field: "Ingredient", background_color: "pink,", description: "This is a food app", font: 20, display_theme: "Table", img_url: "www.youtube.com", app_name: "Grandma's Recipe Book"})
 
 record1 = application1.records.create!({position: 2})
 record2 = application2.records.create!({position: 1})
