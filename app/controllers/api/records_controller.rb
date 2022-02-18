@@ -31,12 +31,13 @@ end
 
   def update
     record = Record.find(params[:id])
-    record.update(
-      position: params[:position],
-      application_id: params[:application_id]
-    )
+    record.update(record_params)
     render json: record
   end
+  private
+  def record_params
+    params.require(:record).permit(:position, :application_id)
+  end  
 
 end
 
