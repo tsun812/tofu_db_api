@@ -26,8 +26,7 @@ def create
       app_name: params[:app_name],
       user_id: params[:user_id]
   )
-  allApplications = Application.all 
-  render json: allApplications
+  render json: applications
 end
 
 
