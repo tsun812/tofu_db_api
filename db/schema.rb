@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20220212030034) do
+ActiveRecord::Schema.define(version: 20220219225456) do
 
   create_table "applications", force: :cascade do |t|
     t.string   "primary_field"
@@ -22,9 +22,10 @@ ActiveRecord::Schema.define(version: 20220212030034) do
     t.string   "display_theme"
     t.string   "img_url"
     t.string   "app_name"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.integer  "user_id"
+    t.string   "sort_by",          default: "date_newest"
   end
 
   create_table "fields", force: :cascade do |t|
