@@ -106,8 +106,14 @@ end
     fieldsWithKey ={}
     primaryId = fields.select(:id).where(field_name: user_application.primary_field)
     secondaryId = fields.select(:id).where(field_name: user_application.secondary_field)
-    recordIDArray = Record.where(:application_id => app_id)
+    if user_application.sort_by == "date_newest"
+     recordIDArray = Record.where(:application_id => app_id)
+     puts user_application.sort_by
+    end
 
+    if user_application.sort_by == "date_oldest"
+     recordIDArray = Record.where(:application_id => app_id).order('created_at DESC')
+    end 
     object = {}
     resultArray =[]
     recordIDArray.each do |record|
@@ -134,13 +140,13 @@ end
 
 
 
-    result = {records: object}
+    result = {records: resultArray}
     render json: result
   end
  
   private
   def application_params
-    params.require(:application).permit(:primary_field, :secondary_field, :background_color, :description, :font, :display_theme, :img_url, :app_name)
+    params.require(:application).permit(:primary_field, :secondary_field, :background_color, :description, :font, :display_theme, :img_url, :app_name, :sort_by)
   end  
 end
 
