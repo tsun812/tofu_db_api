@@ -7,6 +7,18 @@ class API::FieldsController < ApplicationController
     def destroy
         @fields = Field.all 
         @field = Field.find(params[:id])
+
+        # remove selected primary/secondary field if that field is deleted. Did it this way because no time to adjust the schema at this time.
+        deleted_field_name = @field.field_name
+        application_ID = @field.application_id
+        application = Application.find(application_ID)
+        if application.primary_field === deleted_field_name
+            application.update(primary_field: "")
+        end
+        if application.secondary_field === deleted_field_name
+            application.update(secondary_field: "")
+        end
+
         @field.destroy
         render json: @fields
     end
