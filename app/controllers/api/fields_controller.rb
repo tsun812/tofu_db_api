@@ -45,13 +45,9 @@ class API::FieldsController < ApplicationController
        render json: field
     end
 
-<<<<<<< HEAD
-end
-=======
     private
     def record_params
       params.require(:field).permit(:field_name, :field_type)
     end  
 
 end
->>>>>>> 4d9ca064ed85d8002b36ef22f2e1a4801f8eaecd

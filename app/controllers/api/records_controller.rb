@@ -6,7 +6,7 @@ class API::RecordsController < ApplicationController
   end
 
   def createValue(record_id, field_id)
-    Value.create(field_value: nil, record_id: record_id, field_id: field_id)
+    Value.create(field_value: "", record_id: record_id, field_id: field_id)
   end
 
   def create
