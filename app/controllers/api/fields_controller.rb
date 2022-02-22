@@ -40,8 +40,18 @@ class API::FieldsController < ApplicationController
 
     def update
        field = Field.find(params[:id])
-       field.update_columns(field_name: params[:field_name], field_type: params[:field_type])
+       p params
+       field.update(record_params)
        render json: field
     end
 
+<<<<<<< HEAD
 end
+=======
+    private
+    def record_params
+      params.require(:field).permit(:field_name, :field_type)
+    end  
+
+end
+>>>>>>> 4d9ca064ed85d8002b36ef22f2e1a4801f8eaecd
