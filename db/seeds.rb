@@ -36,7 +36,7 @@ record19 = application1.records.create!({position: 1})
 
 field1 = application1.fields.create!({field_name: "Word"})
 field2 = application1.fields.create!({field_name: "Origin"})
-field5 = application1.fields.create!({field_name: "Genus"})
+field5 = application1.fields.create!({field_name: "Classification"})
 field6 = application1.fields.create!({field_name: "Color"})
 field7 = application1.fields.create!({field_name: "Price($) per kg"})
 field3 = application2.fields.create!({field_name: "Building Name"})
