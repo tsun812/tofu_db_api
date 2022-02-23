@@ -10,7 +10,7 @@ user2 = User.create(username: "Yan")
 user3 = User.create(username: "Matt")
 
 application1 = user1.applications.create! ({primary_field: "Word", secondary_field: "Color", background_color: 5, description: "This is a fruit dictionary app", font: 12, display_theme: "List", img_url: "https://images.unsplash.com/photo-1491841651911-c44c30c34548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b2xkJTIwYm9va3N8ZW58MHx8MHx8&w=1000&q=80", app_name: "Fruit Encyclopedia"})
-application2 = user1.applications.create! ({primary_field: "Building Name", secondary_field: "Price", background_color: 13, description: "This is a building app", font: 14, display_theme: "Card", img_url: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fspongebob.fandom.com%2Fwiki%2FList_of_places&psig=AOvVaw0v2HAoeLC_uqYejzof5k0Z&ust=1645736206420000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjKmaPblvYCFQAAAAAdAAAAABAD", app_name: "Real Estate Directory"})
+application2 = user1.applications.create! ({primary_field: "Building Name", secondary_field: "Price", background_color: 13, description: "This is a building app", font: 14, display_theme: "Card", img_url: "https://static.wikia.nocookie.net/spongebob/images/2/26/Bubbletown_002.png/revision/latest/scale-to-width-down/1000?cb=20181028171458", app_name: "Real Estate Directory"})
 application3 = user2.applications.create! ({primary_field: "Event", secondary_field: "Bread", background_color: "", description: "This is a food app", font: 20, display_theme: "Table", img_url: "https://www.thetimes.co.uk/imageserver/image/%2Fmethode%2Ftimes%2Fprod%2Fweb%2Fbin%2F84f922d0-9bfe-11e8-9b62-17ec317258a6.jpg?crop=768%2C432%2C0%2C40", app_name: "Grandma's Recipe Book"})
 
 record1 = application1.records.create!({position: 2})
