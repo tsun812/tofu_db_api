@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20220222214637) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "applications", force: :cascade do |t|
     t.string   "primary_field"
     t.string   "secondary_field"
@@ -60,9 +57,4 @@ ActiveRecord::Schema.define(version: 20220222214637) do
     t.integer  "field_id"
   end
 
-  add_foreign_key "applications", "users"
-  add_foreign_key "fields", "applications"
-  add_foreign_key "records", "applications"
-  add_foreign_key "values", "fields"
-  add_foreign_key "values", "records"
 end
